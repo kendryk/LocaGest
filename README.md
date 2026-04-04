@@ -1,184 +1,197 @@
-# ai-project-template
+# AI Project Template
 
-Template pour structurer l'usage de l'IA dans un projet logiciel de maniere
-generique, reusable et maintenable.
+Template pour structurer l’usage de l’IA dans un projet logiciel de manière cohérente, réutilisable et maintenable.
 
-> Pense le systeme d'instructions comme une architecture legere, pas comme une
-> accumulation de prompts isoles.
+> Penser le système d’instructions comme une architecture légère, pas comme une accumulation de prompts isolés.
 
-## Pourquoi ce template
+---
 
-Sans structure, les assistants IA repondent souvent de facon incoherente.
+## 🎯 Objectif
 
-Ce depot fournit un socle pour :
+Ce dépôt fournit un cadre pour :
 
-- definir des roles clairs via des agents
-- activer les bons contextes selon le sujet
-- centraliser les conventions utiles
-- produire des reponses plus coherentes dans la duree
+* structurer l’utilisation d’assistants IA (Copilot, Claude, ChatGPT)
+* améliorer la cohérence des réponses
+* capitaliser les bonnes pratiques
+* accélérer le développement sans perdre le contrôle technique
 
-Ce depot n'est pas une application executable. C'est un cadre de travail.
+⚠️ Ce dépôt n’est pas une application exécutable, mais un **socle d’organisation**.
 
-## Structure du depot
+---
+
+## 🧱 Structure du dépôt
 
 ```text
 ai-project-template/
 |-- CLAUDE.md
 |-- .github/
 |   `-- agents/
-|       |-- assistant-dev.agent.md
-|       |-- architecte-projet.agent.md
-|       |-- analyste-metier.agent.md
-|       |-- reviewer-code.agent.md
-|       |-- debugger-technique.agent.md
-|       `-- redacteur-doc.agent.md
 |-- contexts/
-|   |-- backend/CLAUDE.md
-|   |-- frontend/CLAUDE.md
-|   |-- infra/CLAUDE.md
-|   `-- domain/CLAUDE.md
 |-- docs/
-|   |-- getting-started.md
-|   |-- utilisation-agents.md
-|   |-- workflow-git.md
-|   `-- prompts/
-|       |-- README.md
-|       |-- analyser-bug-production.md
-|       |-- creer-module-backend.md
-|       `-- rediger-mr.md
-`-- examples/
-    `-- complex-domain-example/
+|-- examples/
 ```
 
-## Agents fournis
+### Détail
 
-| Agent | Role | Quand l'utiliser |
-|---|---|---|
-| `assistant-dev` | Point d'entree, cadrage | Besoin flou, premiere orientation |
-| `architecte-projet` | Architecture et structure | Nouveau projet, evolution d'architecture |
-| `analyste-metier` | Analyse fonctionnelle vers technique | Impacts, tickets, cas de test |
-| `reviewer-code` | Review et risques | Relecture de code, regressions, tests manquants |
-| `debugger-technique` | Diagnostic cible | Logs, build, runtime, configuration |
-| `redacteur-doc` | Documentation | README, PR/MR, docs API, syntheses |
+* **agents/** → rôles spécialisés (dev, archi, debug…)
+* **contexts/** → règles techniques et conventions
+* **docs/prompts/** → prompts réutilisables
+* **examples/** → cas concrets
 
-## Contextes techniques et de domaine
+---
 
-Les contextes ne remplacent pas les agents. Ils completent les instructions avec
-des conventions ciblees :
+## 🤖 Agents disponibles
 
-- `contexts/backend/CLAUDE.md` : architecture serveur, contrats, tests, donnees
-- `contexts/frontend/CLAUDE.md` : organisation UI, etat, services, accessibilite
-- `contexts/infra/CLAUDE.md` : containerisation, CI/CD, deploiement, observabilite
-- `contexts/domain/CLAUDE.md` : vocabulaire, regles de domaine, interactions
+| Agent              | Rôle           | Usage             |
+| ------------------ | -------------- | ----------------- |
+| assistant-dev      | Point d’entrée | Cadrage initial   |
+| architecte-projet  | Architecture   | Design technique  |
+| analyste-metier    | Fonctionnel    | Traduction métier |
+| reviewer-code      | Qualité        | Review / risques  |
+| debugger-technique | Debug          | Logs / erreurs    |
+| redacteur-doc      | Documentation  | MR / README       |
 
-## Trois usages possibles
+---
 
-### 1. Utiliser le depot comme template complet
+## 🧠 Contextes
 
-Tu clones le depot puis tu adaptes le socle a ton projet.
+Les contextes enrichissent les réponses avec des règles spécifiques :
 
-### 2. Integrer seulement une partie dans un projet existant
+* backend → Spring / API / BDD
+* frontend → Angular / UI
+* infra → Docker / CI / déploiement
+* domain → logique métier
 
-Tu copies uniquement :
+👉 Ils évitent de répéter les mêmes instructions à chaque prompt.
 
-- `CLAUDE.md`
-- `.github/agents/`
-- les contextes utiles
-- les documents et prompts utiles
+---
 
-### 3. T'en inspirer comme bibliotheque de conventions
+## 🚀 Exemple concret (ImmoManager)
 
-Tu réutilises les formulations, la structure et les exemples pedagogiques.
+Ce template peut être utilisé pour un projet réel comme :
 
-## Demarrage rapide
+**ImmoManager** – application de gestion d’appartements
 
-### Personnalisation minimale
+Fonctionnalités :
 
-Apres clonage, adapte au minimum :
+* gestion des appartements
+* locataires
+* baux
+* paiements
+* quittances
 
-- `CLAUDE.md`
-- les contextes utiles a ton projet
-- les agents specialises si necessaire
-- les prompts recurrents
+Stack :
 
-### Nouveau projet
+* Spring Boot
+* Angular
+* PostgreSQL
+* JWT
+* Docker
+
+👉 Dans ce cas :
+
+* le contexte backend décrit Spring
+* le contexte domain décrit bail / locataire / quittance
+* les agents pilotent les tâches
+
+---
+
+## ⚡ Utilisation
+
+### Cas 1 – Nouveau projet
 
 ```bash
-git clone [URL_DU_DEPOT] mon-projet
+git clone <repo> mon-projet
 cd mon-projet
 ```
 
-Ensuite :
+Puis :
 
-1. Personnaliser `CLAUDE.md`
+1. Adapter `CLAUDE.md`
 2. Garder uniquement les contextes utiles
-3. Completer `contexts/domain/CLAUDE.md` si ton projet a un vocabulaire fonctionnel riche
-4. Ajouter des agents specialises si le projet le justifie
-5. Lire `docs/getting-started.md`
+3. Ajouter ton contexte métier
+4. Adapter les agents si besoin
 
-### Projet existant
+---
 
-Copie seulement les elements necessaires dans le depot cible :
+### Cas 2 – Projet existant
 
-- le `CLAUDE.md` global adapte
-- les agents utiles dans `.github/agents/`
-- les contextes pertinents
-- les prompts recurrents
+Copier uniquement :
 
-## Workflow recommande
+* `CLAUDE.md`
+* `.github/agents/`
+* contextes utiles
+* prompts utiles
 
-Pour une nouvelle fonctionnalite :
+---
 
-1. `assistant-dev` pour cadrer
-2. `analyste-metier` pour les impacts
-3. `architecte-projet` pour la structure
-4. le contexte adapte pour l'implementation
-5. `debugger-technique` en cas d'erreur
-6. `reviewer-code` pour la relecture
-7. `redacteur-doc` pour documenter
+## 🔄 Workflow recommandé
 
-## Exemples
+Pour une feature :
 
-Le dossier `examples/` contient des exemples pedagogiques complets.
+1. assistant-dev → cadrage
+2. analyste-metier → analyse
+3. architecte-projet → design
+4. contexte adapté → implémentation
+5. debugger-technique → debug
+6. reviewer-code → review
+7. redacteur-doc → documentation
 
-- `examples/complex-domain-example/` : exemple anonymise et simplifie pour un
-  projet multi-modules avec backend, frontend, permissions et interactions de
-  domaine
+---
 
-Ces exemples sont volontairement generiques. Ils servent de base d'adaptation,
-pas de modele à recopier tel quel.
+## 🧪 Prompts
 
-## Bonnes pratiques
+Les prompts sont dans :
 
-- Donner le contexte utile avec la demande
-- Montrer le code, la configuration ou l'erreur exacte quand c'est possible
-- Garder les agents simples et bien separes
-- Faire vivre les contextes au meme rythme que le projet
-- Eviter d'imposer une stack dans les documents globaux
+```text
+docs/prompts/
+```
 
-## Limites
+Exemples :
 
-- Le depot ne fournit pas d'application executable
-- Les exemples restent des supports pedagogiques
-- Les choix finaux dependent du projet, de l'equipe et des contraintes reelles
+* créer un module backend
+* analyser un bug
+* rédiger une MR
 
-## Documentation
+👉 Ajouter tes propres prompts métier (ex : gestion locataire)
 
-- [Guide de demarrage](docs/getting-started.md)
-- [Utilisation des agents](docs/utilisation-agents.md)
-- [Workflow Git](docs/workflow-git.md)
-- [Prompts reutilisables](docs/prompts/README.md)
+---
 
-## Contribution
+## ✅ Bonnes pratiques
 
-Les contributions sont les bienvenues.
+* Toujours donner du contexte
+* Fournir du code réel
+* Garder les agents simples
+* Versionner les prompts utiles
+* Adapter les contextes au projet
 
-Pour les changements importants :
+---
 
-- ouvrir une issue ou une discussion d'abord
-- garder les PR ciblees
-- relire les snippets et le rendu Markdown avant envoi
+## ⚠️ Limites
 
-## Licence
+* Pas d’exécution directe
+* Nécessite adaptation
+* Ne remplace pas l’expertise technique
 
-Ce projet est distribue sous licence MIT. Voir `LICENSE`.
+---
+
+## 📚 Documentation
+
+* docs/getting-started.md
+* docs/utilisation-agents.md
+* docs/workflow-git.md
+* docs/prompts/README.md
+
+---
+
+## 🤝 Contribution
+
+* Ouvrir une issue avant gros changement
+* PR ciblées
+* Markdown propre et relu
+
+---
+
+## 📄 Licence
+
+MIT

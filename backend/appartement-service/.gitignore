@@ -1,0 +1,38 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+
+# Build
+target/
+build/
+*.class
+*.jar
+*.war
+
+# Maven
+.m2/
+maven-wrapper.jar
+
+# Logs
+logs/
+*.log
+
+# Database
+*.db
+*.h2.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.coverage
+coverage/
+
+# Environment
+.env
+.env.local
+
