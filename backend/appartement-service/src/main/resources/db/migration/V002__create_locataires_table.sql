@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS locataires (
 
     -- Coordonnées
     email VARCHAR(255) NOT NULL UNIQUE,
-    telephone VARCHAR(20) NOT NULL,
+    telephone VARCHAR(20) NOT NULL UNIQUE,
 
     -- Informations complémentaires
     date_naissance DATE NOT NULL,
