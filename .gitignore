@@ -1,0 +1,65 @@
+# ======================
+# IDE
+# ======================
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# ======================
+# OS
+# ======================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ======================
+# Environment
+# ======================
+.env
+.env.local
+.env.*.local
+
+# ======================
+# Dependencies
+# ======================
+node_modules/
+vendor/
+
+# ======================
+# Build
+# ======================
+dist/
+build/
+target/
+*.jar
+*.war
+
+# ======================
+# Logs
+# ======================
+*.log
+npm-debug.log*
+
+# ======================
+# AI / Local
+# ======================
+.ai/
+
+# ======================
+# Misc
+# ======================
+*.swp
+*.swo
+*~
+
+# ======================
+# JetBrains specific
+# ======================
+/shelf/
+/workspace.xml
+/dataSources/
+/dataSources.local.xml
+/httpRequests/
+
