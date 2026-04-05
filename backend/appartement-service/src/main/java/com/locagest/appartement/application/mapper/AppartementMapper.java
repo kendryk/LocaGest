@@ -65,18 +65,45 @@ public class AppartementMapper {
             return;
         }
 
-        appartement.setAdresse(dto.getAdresse());
-        appartement.setCodePostal(dto.getCodePostal());
-        appartement.setVille(dto.getVille());
-        appartement.setSurfaceHabitable(dto.getSurfaceHabitable());
-        appartement.setNombrePieces(dto.getNombrePieces());
-        appartement.setLoyerMensuel(dto.getLoyerMensuel());
-        appartement.setChargesMensuelles(dto.getChargesMensuelles());
-        appartement.setTypeBien(dto.getTypeBien());
-        appartement.setStatut(dto.getStatut());
-        appartement.setAnneeConstruction(dto.getAnneeConstruction());
-        appartement.setObservations(dto.getObservations());
-        appartement.setProprietaireId(dto.getProprietaireId());
+        if (dto.getAdresse() == null | appartement.getAdresse() == null ) {
+            appartement.setAdresse(dto.getAdresse());
+        }
+        if (dto.getCodePostal() == null | appartement.getCodePostal() == null ) {
+            appartement.setCodePostal(dto.getCodePostal());
+        }
+        if (dto.getVille() == null | appartement.getVille() == null ) {
+            appartement.setVille(dto.getVille());
+        }
+        if (dto.getSurfaceHabitable() == null | appartement.getSurfaceHabitable() == null ) {
+            appartement.setSurfaceHabitable(dto.getSurfaceHabitable());
+        }
+        if (dto.getNombrePieces() == null | appartement.getNombrePieces() == null ) {
+            appartement.setNombrePieces(dto.getNombrePieces());
+        }
+        if (dto.getLoyerMensuel() == null | appartement.getLoyerMensuel() == null ) {
+            appartement.setLoyerMensuel(dto.getLoyerMensuel());
+        }
+        if (dto.getChargesMensuelles() == null | appartement.getChargesMensuelles() == null ) {
+            appartement.setChargesMensuelles(dto.getChargesMensuelles());
+        }
+        if (dto.getTypeBien() == null | appartement.getTypeBien() == null ) {
+            appartement.setTypeBien(dto.getTypeBien());
+
+        }
+        if (dto.getStatut() == null | appartement.getStatut() == null ) {
+            appartement.setStatut(dto.getStatut());
+
+        }
+        if (dto.getAnneeConstruction() == null | appartement.getAnneeConstruction() == null ) {
+            appartement.setAnneeConstruction(dto.getAnneeConstruction());
+        }
+
+        if (dto.getObservations() == null | appartement.getObservations() == null ) {
+            appartement.setObservations(dto.getObservations());
+        }
+        if (dto.getProprietaireId() == null | appartement.getProprietaireId() == null ) {
+            appartement.setProprietaireId(dto.getProprietaireId());
+        }
     }
 }
 

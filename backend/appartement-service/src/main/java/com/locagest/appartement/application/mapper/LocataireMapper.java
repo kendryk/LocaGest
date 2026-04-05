@@ -51,11 +51,23 @@ public class LocataireMapper {
             return;
         }
 
-        locataire.setNom(dto.getNom());
-        locataire.setPrenom(dto.getPrenom());
-        locataire.setEmail(dto.getEmail());
-        locataire.setTelephone(dto.getTelephone());
-        locataire.setDateNaissance(dto.getDateNaissance());
-        locataire.setActif(dto.getActif());
+        if(dto.getNom() == null || locataire.getNom() == null) {
+            locataire.setNom(dto.getNom());
+        }
+        if(dto.getPrenom() == null || locataire.getPrenom() == null) {
+            locataire.setPrenom(dto.getPrenom());
+        }
+        if(dto.getEmail() == null || locataire.getEmail() == null) {
+            locataire.setEmail(dto.getEmail());
+        }
+        if(dto.getTelephone() == null || locataire.getTelephone() == null) {
+            locataire.setTelephone(dto.getTelephone());
+        }
+        if (dto.getDateNaissance() == null || locataire.getDateNaissance() == null) {
+            locataire.setDateNaissance(dto.getDateNaissance());
+        }
+        if (dto.getActif() == null || locataire.getActif() == null) {
+            locataire.setActif(dto.getActif());
+        }
     }
 }
