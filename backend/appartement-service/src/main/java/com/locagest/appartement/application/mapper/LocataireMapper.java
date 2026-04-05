@@ -42,7 +42,7 @@ public class LocataireMapper {
             .email(dto.getEmail())
             .telephone(dto.getTelephone())
             .dateNaissance(dto.getDateNaissance())
-            .actif(dto.getActif() != null ? dto.getActif() : true)
+            .actif(dto.getActif())
             .build();
     }
 

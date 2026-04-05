@@ -51,7 +51,7 @@ public class LocataireService {
             throw new IllegalArgumentException("Le locataire doit être majeur (18 ans minimum)");
         }
 
-        Locataire locataire = mapper.toEntity(dto);
+        Locataire locataire = this.toNewEntity(dto); //  mapper.toEntity(dto);
         Locataire saved = repository.save(locataire);
 
         log.info("Locataire créé avec succès: ID={}, nom={} {}", saved.getId(), saved.getPrenom(), saved.getNom());
@@ -170,5 +170,13 @@ public class LocataireService {
     public long countByActif(Boolean actif) {
         log.debug("Comptage des locataires avec statut actif: {}", actif);
         return repository.countByActif(actif);
+    }
+
+    public Locataire toNewEntity(LocataireDto dto) {
+        Locataire locataire = mapper.toEntity(dto);
+        if (locataire.getActif() == null) {
+            locataire.setActif(true);
+        }
+        return locataire;
     }
 }
